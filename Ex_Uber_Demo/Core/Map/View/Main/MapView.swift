@@ -14,6 +14,7 @@ struct MapView: UIViewRepresentable{
     let locationManager = LocationManager()
     @Binding var appState: AppStates
     @EnvironmentObject var locationSearchViewModel: LocationSearchViewModel
+
     //MARK: - Life Cycle
     func makeUIView(context: Context) -> some UIView {
         mapView.delegate = context.coordinator
@@ -25,7 +26,12 @@ struct MapView: UIViewRepresentable{
     func updateUIView(_ uiView: UIViewType, context: Context) {
         switch appState {
         case .initState:
-            break
+            context.coordinator.clearMapView()
+            DispatchQueue.main.async {
+                if locationSearchViewModel.destinationLocation != nil {
+                    locationSearchViewModel.cleanViewModel()
+                }
+            }
         case .SearchLocationViewState:
             break
         case .SelectedLocationState:
@@ -33,7 +39,6 @@ struct MapView: UIViewRepresentable{
                 print("Error Maser")
                 return
             }
-            print("Debug: Destination is \(destinationLocation.coordinates)")
             context.coordinator.addAnnotation(for: destinationLocation)
             context.coordinator.configPoyline(to: destinationLocation.coordinates)
             
@@ -51,7 +56,7 @@ extension MapView{
         //MARK: - Properties
         let parenView: MapView
         var userLocation: CLLocationCoordinate2D?
-
+       
         
         
         //MARK: - Life Cycle
@@ -69,6 +74,12 @@ extension MapView{
             self.userLocation = userLocation.coordinate
                 
         }
+        func mapView(_ mapView: MKMapView, rendererFor overlay: any MKOverlay) -> MKOverlayRenderer {
+            let poyline = MKPolylineRenderer(overlay: overlay)
+            poyline.strokeColor = .black
+            poyline.lineWidth = 10
+            return poyline
+        }
         
         //MARK: - Helpers
         func addAnnotation(for destination: UberLoctionModel){
@@ -80,15 +91,19 @@ extension MapView{
         
         func configPoyline(to destination: CLLocationCoordinate2D){
             guard let safeUserLocation = userLocation else{return}
-            getRoute(form: safeUserLocation, to: destination) {[weak self] route in
+            MapView.mapViewCoordinator.getRoute(form: safeUserLocation, to: destination) {[weak self] route in
                 guard let self = self else{return}
                 self.parenView.mapView.addOverlay(route.polyline)
-                let rect = self.parenView.mapView.mapRectThatFits(route.polyline.boundingMapRect, edgePadding: UIEdgeInsets(top: 30, left: 30, bottom: 30, right: 30))
+                let rect = self.parenView.mapView.mapRectThatFits(route.polyline.boundingMapRect, edgePadding: UIEdgeInsets(top: 60, left: 33, bottom: 550, right: 33))
                 parenView.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
             }
         }
         
-        func getRoute(form userLocation: CLLocationCoordinate2D,to destination: CLLocationCoordinate2D,completion: @escaping (MKRoute) -> Void){
+       static func getRoute(
+            form userLocation: CLLocationCoordinate2D,
+            to destination: CLLocationCoordinate2D,
+            completion: @escaping (MKRoute) -> Void
+        ){
             let userMark = MKPlacemark(coordinate:userLocation)
             let destinationMark = MKPlacemark(coordinate: destination)
             let request = MKDirections.Request()
@@ -101,9 +116,17 @@ extension MapView{
                     return
                 }else{
                     guard let route = res?.routes.first else{return}
+                    RideViewModel.shared.calculateArrivalTime(expectedTravelTime: route.expectedTravelTime)
                     completion(route)
                 }
             }
         }
+        func clearMapView(){
+            let mapView = parenView.mapView
+            mapView.removeAnnotations(mapView.annotations)
+            mapView.removeOverlays(mapView.overlays)
+            
+        }
     }
 }
+

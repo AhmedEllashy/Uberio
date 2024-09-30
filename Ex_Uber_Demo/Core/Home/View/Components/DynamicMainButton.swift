@@ -11,7 +11,11 @@ struct DynamicMainButton: View {
     @Binding var state: AppStates
     var body: some View {
         Button {
-            
+            if state == .SelectedLocationState || state == .SearchLocationViewState{
+                withAnimation {
+                    state = .initState
+                }
+            }
         } label: {
             Image(
                 systemName: state == .initState ? "line.3.horizontal" : "arrow.left"

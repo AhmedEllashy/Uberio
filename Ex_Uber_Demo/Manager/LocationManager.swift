@@ -9,7 +9,9 @@ import UIKit
 import CoreLocation
 
 class LocationManager: NSObject, ObservableObject {
+    static let shared = LocationManager()
     let locationManager: CLLocationManager = CLLocationManager()
+    @Published var userLocation: CLLocationCoordinate2D?
     
    override init() {
        super.init()
@@ -24,6 +26,8 @@ class LocationManager: NSObject, ObservableObject {
 extension LocationManager: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard  !locations.isEmpty else{return}
+        userLocation = locations.first?.coordinate
+        manager.stopUpdatingLocation()
         
     }
 }

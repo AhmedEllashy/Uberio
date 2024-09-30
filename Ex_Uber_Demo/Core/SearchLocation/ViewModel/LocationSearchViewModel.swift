@@ -12,8 +12,9 @@ import MapKit
 class LocationSearchViewModel: NSObject,ObservableObject{
     //MARK: - Properties
     @Published var searchResults = [MKLocalSearchCompletion]()
-    @Published var searchCompleter = MKLocalSearchCompleter()
     @Published var destinationLocation: UberLoctionModel?
+    @Published var userLocationCoordinates: CLLocationCoordinate2D?
+    var searchCompleter = MKLocalSearchCompleter()
     var searchQuery: String =  "" {
         didSet{
            searchCompleter.queryFragment = searchQuery
@@ -25,6 +26,7 @@ class LocationSearchViewModel: NSObject,ObservableObject{
         searchCompleter.delegate = self
         searchCompleter.queryFragment = searchQuery
     }
+ 
     //MARK: - Helpers
     func didSelectLocation(with selectedLocation: MKLocalSearchCompletion){
         self.createSearchRequest(with: selectedLocation) {[weak self] response, error in
@@ -52,7 +54,20 @@ class LocationSearchViewModel: NSObject,ObservableObject{
         search.start(completionHandler: completion)
         
     }
-    
+    func cleanViewModel(){
+        destinationLocation = nil
+    }
+    func calculateDistance(for ride: UberRideOptions) -> Double{
+        guard let uLocation = userLocationCoordinates else{return 0.0}
+        guard let dLocation = destinationLocation?.coordinates else{return 0.0}
+        
+        let userLocation = CLLocation(latitude: uLocation.latitude, longitude: uLocation.longitude)
+        let destLocation = CLLocation(latitude: dLocation.latitude, longitude: dLocation.longitude)
+        
+        let distance = userLocation.distance(from: destLocation)
+        return ride.calculateRidePrice(distance: distance)
+
+    }
     
 }
 extension LocationSearchViewModel: MKLocalSearchCompleterDelegate{

@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		202F2EC22CA349A000F58545 /* LocationSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202F2EC12CA349A000F58545 /* LocationSearchViewModel.swift */; };
 		202F2EC42CA34D8300F58545 /* UberLoctionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202F2EC32CA34D8300F58545 /* UberLoctionModel.swift */; };
+		205707D82CA4EE360041E371 /* RideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205707D72CA4EE360041E371 /* RideView.swift */; };
+		205707DB2CA4F0730041E371 /* HelpersViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205707DA2CA4F0730041E371 /* HelpersViews.swift */; };
+		205707DD2CA4F0F50041E371 /* RideLocationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205707DC2CA4F0F50041E371 /* RideLocationDetailsView.swift */; };
+		205707DF2CA4F1480041E371 /* UberRideOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205707DE2CA4F1480041E371 /* UberRideOptions.swift */; };
+		205707E42CA4F2560041E371 /* RideTypeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205707E32CA4F2560041E371 /* RideTypeSelectionView.swift */; };
+		2060CE162CAAAB5A00EF46D6 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2060CE152CAAAB5A00EF46D6 /* extensions.swift */; };
+		208815C52CAB589C007CFF8C /* RideViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208815C42CAB589C007CFF8C /* RideViewModel.swift */; };
 		2099A9642CA1C1B100E3350B /* Ex_Uber_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2099A9632CA1C1B100E3350B /* Ex_Uber_DemoApp.swift */; };
 		2099A9682CA1C1B400E3350B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2099A9672CA1C1B400E3350B /* Assets.xcassets */; };
 		2099A96B2CA1C1B400E3350B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2099A96A2CA1C1B400E3350B /* Preview Assets.xcassets */; };
@@ -27,6 +34,13 @@
 /* Begin PBXFileReference section */
 		202F2EC12CA349A000F58545 /* LocationSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewModel.swift; sourceTree = "<group>"; };
 		202F2EC32CA34D8300F58545 /* UberLoctionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberLoctionModel.swift; sourceTree = "<group>"; };
+		205707D72CA4EE360041E371 /* RideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideView.swift; sourceTree = "<group>"; };
+		205707DA2CA4F0730041E371 /* HelpersViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpersViews.swift; sourceTree = "<group>"; };
+		205707DC2CA4F0F50041E371 /* RideLocationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideLocationDetailsView.swift; sourceTree = "<group>"; };
+		205707DE2CA4F1480041E371 /* UberRideOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberRideOptions.swift; sourceTree = "<group>"; };
+		205707E32CA4F2560041E371 /* RideTypeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideTypeSelectionView.swift; sourceTree = "<group>"; };
+		2060CE152CAAAB5A00EF46D6 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
+		208815C42CAB589C007CFF8C /* RideViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideViewModel.swift; sourceTree = "<group>"; };
 		2099A9602CA1C1B100E3350B /* Ex_Uber_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ex_Uber_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2099A9632CA1C1B100E3350B /* Ex_Uber_DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ex_Uber_DemoApp.swift; sourceTree = "<group>"; };
 		2099A9672CA1C1B400E3350B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -54,6 +68,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		205707D02CA4EDE90041E371 /* Ride */ = {
+			isa = PBXGroup;
+			children = (
+				205707D32CA4EDF50041E371 /* Model */,
+				205707D22CA4EDF00041E371 /* ViewModel */,
+				205707D12CA4EDED0041E371 /* View */,
+			);
+			path = Ride;
+			sourceTree = "<group>";
+		};
+		205707D12CA4EDED0041E371 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				205707D52CA4EDFC0041E371 /* Components */,
+				205707D42CA4EDF90041E371 /* Main */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		205707D22CA4EDF00041E371 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				208815C42CAB589C007CFF8C /* RideViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		205707D32CA4EDF50041E371 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				205707DE2CA4F1480041E371 /* UberRideOptions.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		205707D42CA4EDF90041E371 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				205707D72CA4EE360041E371 /* RideView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		205707D52CA4EDFC0041E371 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				205707DA2CA4F0730041E371 /* HelpersViews.swift */,
+				205707DC2CA4F0F50041E371 /* RideLocationDetailsView.swift */,
+				205707E32CA4F2560041E371 /* RideTypeSelectionView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		2099A9572CA1C1B100E3350B = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +160,7 @@
 		2099A9732CA1C1DE00E3350B /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				205707D02CA4EDE90041E371 /* Ride */,
 				2099A9902CA1ED9400E3350B /* SearchLocation */,
 				2099A97C2CA1C24200E3350B /* Map */,
 				2099A9762CA1C1FD00E3350B /* Home */,
@@ -112,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				2099A9672CA1C1B400E3350B /* Assets.xcassets */,
+				2060CE152CAAAB5A00EF46D6 /* extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -129,7 +198,7 @@
 		2099A9772CA1C20100E3350B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2099A97B2CA1C21A00E3350B /* Helpers */,
+				2099A97B2CA1C21A00E3350B /* Components */,
 				2099A97A2CA1C21400E3350B /* Main */,
 			);
 			path = View;
@@ -158,13 +227,13 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		2099A97B2CA1C21A00E3350B /* Helpers */ = {
+		2099A97B2CA1C21A00E3350B /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				2099A98A2CA1C90000E3350B /* DynamicMainButton.swift */,
 				2099A98C2CA1CB9F00E3350B /* RectangleInitalView.swift */,
 			);
-			path = Helpers;
+			path = Components;
 			sourceTree = "<group>";
 		};
 		2099A97C2CA1C24200E3350B /* Map */ = {
@@ -180,7 +249,7 @@
 		2099A97D2CA1C24800E3350B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2099A9812CA1C27100E3350B /* Helpers */,
+				2099A9812CA1C27100E3350B /* Components */,
 				2099A9802CA1C26C00E3350B /* Main */,
 			);
 			path = View;
@@ -208,11 +277,11 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		2099A9812CA1C27100E3350B /* Helpers */ = {
+		2099A9812CA1C27100E3350B /* Components */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Helpers;
+			path = Components;
 			sourceTree = "<group>";
 		};
 		2099A9842CA1C5FF00E3350B /* Manager */ = {
@@ -236,7 +305,7 @@
 		2099A9912CA1EDA600E3350B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2099A9972CA1EDDE00E3350B /* Helpers */,
+				2099A9972CA1EDDE00E3350B /* Components */,
 				2099A9962CA1EDCD00E3350B /* Main */,
 			);
 			path = View;
@@ -266,14 +335,14 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		2099A9972CA1EDDE00E3350B /* Helpers */ = {
+		2099A9972CA1EDDE00E3350B /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				2099A9992CA1EE3E00E3350B /* TwoPointsShapeView.swift */,
 				2099A99B2CA1EF0400E3350B /* LocationSearchTextFieldsView.swift */,
 				2099A99D2CA1F23800E3350B /* LocationSearchItemView.swift */,
 			);
-			path = Helpers;
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,10 +416,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				2099A99E2CA1F23800E3350B /* LocationSearchItemView.swift in Sources */,
+				205707DB2CA4F0730041E371 /* HelpersViews.swift in Sources */,
 				2099A9892CA1C61F00E3350B /* LocationManager.swift in Sources */,
+				205707E42CA4F2560041E371 /* RideTypeSelectionView.swift in Sources */,
+				205707D82CA4EE360041E371 /* RideView.swift in Sources */,
 				2099A98B2CA1C90000E3350B /* DynamicMainButton.swift in Sources */,
+				2060CE162CAAAB5A00EF46D6 /* extensions.swift in Sources */,
 				202F2EC22CA349A000F58545 /* LocationSearchViewModel.swift in Sources */,
+				205707DD2CA4F0F50041E371 /* RideLocationDetailsView.swift in Sources */,
 				2099A9722CA1C1C600E3350B /* HomeView.swift in Sources */,
+				208815C52CAB589C007CFF8C /* RideViewModel.swift in Sources */,
+				205707DF2CA4F1480041E371 /* UberRideOptions.swift in Sources */,
 				2099A99C2CA1EF0400E3350B /* LocationSearchTextFieldsView.swift in Sources */,
 				2099A98D2CA1CB9F00E3350B /* RectangleInitalView.swift in Sources */,
 				2099A99A2CA1EE3E00E3350B /* TwoPointsShapeView.swift in Sources */,

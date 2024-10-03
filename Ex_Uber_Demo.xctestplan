@@ -1,0 +1,27 @@
+{
+  "configurations" : [
+    {
+      "id" : "8AF715FC-D0CD-40DD-8B43-AE36D49ACF99",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "locationScenario" : {
+      "identifier" : "Honolulu, HI, USA",
+      "referenceType" : "built-in"
+    },
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Ex_Uber_Demo.xcodeproj",
+      "identifier" : "2099A95F2CA1C1B100E3350B",
+      "name" : "Ex_Uber_Demo"
+    }
+  },
+  "testTargets" : [
+
+  ],
+  "version" : 1
+}

@@ -15,6 +15,7 @@ struct MapView: UIViewRepresentable{
     @Binding var appState: AppStates
     @EnvironmentObject var locationSearchViewModel: LocationSearchViewModel
 
+
     //MARK: - Life Cycle
     func makeUIView(context: Context) -> some UIView {
         mapView.delegate = context.coordinator
@@ -56,7 +57,7 @@ extension MapView{
         //MARK: - Properties
         let parenView: MapView
         var userLocation: CLLocationCoordinate2D?
-       
+
         
         
         //MARK: - Life Cycle
@@ -70,6 +71,10 @@ extension MapView{
                     latitude: userLocation.coordinate.latitude,
                     longitude: userLocation.coordinate.longitude),
                 span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+//            var timer = Timer(timeInterval: 10, repeats: true) { timer in
+//                self.userLocation = CLLocationCoordinate2D(latitude: (self.userLocation?.longitude ?? 10) + 1 , longitude: (self.userLocation?.longitude ?? 10) + 1)
+//            }
+//            RunLoop.main.run()
             parenView.mapView.setRegion(region, animated: true)
             self.userLocation = userLocation.coordinate
                 
@@ -84,6 +89,7 @@ extension MapView{
         //MARK: - Helpers
         func addAnnotation(for destination: UberLoctionModel){
             let annotation = MKPointAnnotation()
+            annotation.title = "destination"
             annotation.coordinate = destination.coordinates
             parenView.mapView.addAnnotation(annotation)
             parenView.mapView.selectAnnotation(annotation, animated: true)
@@ -127,6 +133,49 @@ extension MapView{
             mapView.removeOverlays(mapView.overlays)
             
         }
+        func mapView(_ mapView: MKMapView, viewFor annotation: any MKAnnotation) -> MKAnnotationView? {
+            var myAnnotation = parenView.mapView.dequeueReusableAnnotationView(withIdentifier: "custom")
+            if myAnnotation == nil{
+                myAnnotation = MKAnnotationView(annotation: annotation, reuseIdentifier: "custom")
+            }else{
+                myAnnotation?.annotation = annotation
+            }
+     
+            if myAnnotation?.annotation?.title == "destination"{
+                return nil
+            }else{
+                guard let image = UIImage(named: "uber-x") else { return nil }
+                guard let resizedImage =  ResizeImage(image, targetSize: CGSize(width: 90, height: 90))else{return nil}
+                myAnnotation?.image = resizedImage
+                return myAnnotation
+            }
+        }
+        func ResizeImage(_ image: UIImage, targetSize: CGSize) -> UIImage? {
+            let size = image.size
+
+            let widthRatio  = targetSize.width  / image.size.width
+            let heightRatio = targetSize.height / image.size.height
+
+            // Figure out what our orientation is, and use that to form the rectangle
+            var newSize: CGSize
+            if(widthRatio > heightRatio) {
+                newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
+            } else {
+                newSize = CGSize(width: size.width * widthRatio, height: size.height * widthRatio)
+            }
+
+            // This is the rect that we've calculated out and this is what is actually used below
+            let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+
+            // Actually do the resizing to the rect using the ImageContext stuff
+            UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+            image.draw(in: rect)
+            let newImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+
+            return newImage
+        }
     }
+
 }
 

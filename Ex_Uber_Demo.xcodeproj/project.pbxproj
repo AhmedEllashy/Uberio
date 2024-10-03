@@ -31,7 +31,19 @@
 		2099A99E2CA1F23800E3350B /* LocationSearchItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2099A99D2CA1F23800E3350B /* LocationSearchItemView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		201C9A902CAEE5690030D42F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2099A9582CA1C1B100E3350B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2099A95F2CA1C1B100E3350B;
+			remoteInfo = Ex_Uber_Demo;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		201C9A872CAEE52F0030D42F /* Ex_Uber_Demo.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Ex_Uber_Demo.xctestplan; sourceTree = "<group>"; };
+		201C9A8C2CAEE5690030D42F /* Ex_Uber_Demo_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Ex_Uber_Demo_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		202F2EC12CA349A000F58545 /* LocationSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewModel.swift; sourceTree = "<group>"; };
 		202F2EC32CA34D8300F58545 /* UberLoctionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberLoctionModel.swift; sourceTree = "<group>"; };
 		205707D72CA4EE360041E371 /* RideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideView.swift; sourceTree = "<group>"; };
@@ -58,6 +70,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		201C9A892CAEE5690030D42F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2099A95D2CA1C1B100E3350B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -68,6 +87,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		201C9A8D2CAEE5690030D42F /* Ex_Uber_Demo_Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Ex_Uber_Demo_Tests;
+			sourceTree = "<group>";
+		};
 		205707D02CA4EDE90041E371 /* Ride */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,7 +150,9 @@
 		2099A9572CA1C1B100E3350B = {
 			isa = PBXGroup;
 			children = (
+				201C9A872CAEE52F0030D42F /* Ex_Uber_Demo.xctestplan */,
 				2099A9622CA1C1B100E3350B /* Ex_Uber_Demo */,
+				201C9A8D2CAEE5690030D42F /* Ex_Uber_Demo_Tests */,
 				2099A9612CA1C1B100E3350B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -133,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				2099A9602CA1C1B100E3350B /* Ex_Uber_Demo.app */,
+				201C9A8C2CAEE5690030D42F /* Ex_Uber_Demo_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -348,6 +377,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		201C9A8B2CAEE5690030D42F /* Ex_Uber_Demo_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 201C9A922CAEE5690030D42F /* Build configuration list for PBXNativeTarget "Ex_Uber_Demo_Tests" */;
+			buildPhases = (
+				201C9A882CAEE5690030D42F /* Sources */,
+				201C9A892CAEE5690030D42F /* Frameworks */,
+				201C9A8A2CAEE5690030D42F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				201C9A912CAEE5690030D42F /* PBXTargetDependency */,
+			);
+			name = Ex_Uber_Demo_Tests;
+			productName = Ex_Uber_Demo_Tests;
+			productReference = 201C9A8C2CAEE5690030D42F /* Ex_Uber_Demo_Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		2099A95F2CA1C1B100E3350B /* Ex_Uber_Demo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2099A96E2CA1C1B400E3350B /* Build configuration list for PBXNativeTarget "Ex_Uber_Demo" */;
@@ -375,6 +422,10 @@
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
+					201C9A8B2CAEE5690030D42F = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 2099A95F2CA1C1B100E3350B;
+					};
 					2099A95F2CA1C1B100E3350B = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -394,11 +445,19 @@
 			projectRoot = "";
 			targets = (
 				2099A95F2CA1C1B100E3350B /* Ex_Uber_Demo */,
+				201C9A8B2CAEE5690030D42F /* Ex_Uber_Demo_Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		201C9A8A2CAEE5690030D42F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2099A95E2CA1C1B100E3350B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -411,6 +470,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		201C9A882CAEE5690030D42F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2099A95C2CA1C1B100E3350B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -440,7 +506,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		201C9A912CAEE5690030D42F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2099A95F2CA1C1B100E3350B /* Ex_Uber_Demo */;
+			targetProxy = 201C9A902CAEE5690030D42F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		201C9A932CAEE5690030D42F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AKB2P78M7Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ellashy.Ex-Uber-Demo-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ex_Uber_Demo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Ex_Uber_Demo";
+			};
+			name = Debug;
+		};
+		201C9A942CAEE5690030D42F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AKB2P78M7Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ellashy.Ex-Uber-Demo-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ex_Uber_Demo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Ex_Uber_Demo";
+			};
+			name = Release;
+		};
 		2099A96C2CA1C1B400E3350B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -623,6 +733,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		201C9A922CAEE5690030D42F /* Build configuration list for PBXNativeTarget "Ex_Uber_Demo_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				201C9A932CAEE5690030D42F /* Debug */,
+				201C9A942CAEE5690030D42F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2099A95B2CA1C1B100E3350B /* Build configuration list for PBXProject "Ex_Uber_Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
